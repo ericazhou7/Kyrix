@@ -52,12 +52,14 @@ var ridesInLayer = new Layer(transforms.countsTransform, false);
 insetMapCanvas.addLayer(ridesInLayer);
 ridesInLayer.addPlacement(placements.ridesPlacement);
 ridesInLayer.addRenderingFunc(renderers.ridesInRendering);
+ridesInLayer.addTooltip(["end_station_name"], ["Rides to"]);
 
 // rides out layer
 var ridesOutLayer = new Layer(transforms.countsTransform, false);
 insetMapCanvas.addLayer(ridesOutLayer);
 ridesOutLayer.addPlacement(placements.ridesPlacement);
 ridesOutLayer.addRenderingFunc(renderers.ridesOutRendering);
+ridesInLayer.addTooltip(["start_station_name"], ["Rides from"]);
 
 // map layer
 var insetMapLayer = new Layer(transforms.insetMapTransform, false);
@@ -177,7 +179,7 @@ var newPredicate = function(row) {
             },
         ]
     };
-    return {layer1: pred1, layer2: pred1};
+    return {layer0: pred1};
 };
 
 var jumpName = function(row) {

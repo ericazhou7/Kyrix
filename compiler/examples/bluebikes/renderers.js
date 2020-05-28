@@ -130,7 +130,7 @@ var ridesInRendering = function(svg, data, args) {
 
     var barWidth = d3.scaleLog()
         .domain([min_count,max_count])
-        .range([1,10]);
+        .range([2,10]);
 
     g.selectAll("line")
         .data(data)
@@ -144,13 +144,13 @@ var ridesInRendering = function(svg, data, args) {
         .style("stroke-width", function (d) {return barWidth(d.count);})
         .style("opacity",0.2);
 
-    g.selectAll("circle")
+    /*g.selectAll("circle")
         .data(data)
         .enter()
         .append("circle")
         .attr("cx", function (d) {return d.start_bbox_x;})
         .attr("cy", function (d) {return d.start_bbox_y;})
-        .attr("r",4)
+        .attr("r",10)
         .style("opacity",0)
         .on("mouseover", function(d, i) {
             // remove all tool tips first
@@ -164,11 +164,11 @@ var ridesInRendering = function(svg, data, args) {
                 .attr("id", "tooltip" + i)
                 .classed("tooltip", true)
                 .style("position", "absolute")
-                .style("width", 300)
-                .style("height", 100)
+                .style("width", 250)
+                .style("height", 75)
                 .style("background","#C4EBC5")
                 .style("opacity", 1)
-                .style("font-size", 24)
+                .style("font-size", 18)
                 .style("color", "black");
             tooltip
                 .transition()
@@ -181,7 +181,7 @@ var ridesInRendering = function(svg, data, args) {
         })
         .on("mouseout", function(d, i) {
             d3.select("#tooltip" + i).remove();
-        });;
+        });;*/
 }
 
 var ridesOutRendering = function(svg, data, args) {
@@ -195,7 +195,7 @@ var ridesOutRendering = function(svg, data, args) {
 
     var barWidth = d3.scaleLog()
         .domain([min_count,max_count])
-        .range([1,10]);
+        .range([2,10]);
 
     g.selectAll("line")
         .data(data)
@@ -206,16 +206,16 @@ var ridesOutRendering = function(svg, data, args) {
         .attr("x2", function(d) {return d.end_bbox_x;})
         .attr("y2", function(d) {return d.end_bbox_y;})
         .style("stroke", "red")
-        .style("stroke-width", function (d) {return barWidth(d);})
+        .style("stroke-width", function (d) {return barWidth(d.count);})
         .style("opacity",0.2);
 
-    g.selectAll("circle")
+    /*g.selectAll("circle")
         .data(data)
         .enter()
         .append("circle")
         .attr("cx", function(d) {return d.end_bbox_x;})
         .attr("cy", function(d) {return d.end_bbox_y;})
-        .attr("r",4)
+        .attr("r",8)
         .style("opacity",0)
         .on("mouseover", function(d, i) {
             // remove all tool tips first
@@ -230,10 +230,10 @@ var ridesOutRendering = function(svg, data, args) {
                 .classed("tooltip", true)
                 .style("position", "absolute")
                 .style("background", "#EBC4C4")
-                .style("width", 300)
-                .style("height", 100)
+                .style("width", 250)
+                .style("height", 75)
                 .style("opacity", 1)
-                .style("font-size", 24)
+                .style("font-size", 18)
                 .style("color", "black");
             tooltip
                 .transition()
@@ -246,7 +246,7 @@ var ridesOutRendering = function(svg, data, args) {
         })
         .on("mouseout", function(d, i) {
             d3.select("#tooltip" + i).remove();
-        });;
+        });;*/
 }
 
 var stationNameRendering = function(svg, data) {
