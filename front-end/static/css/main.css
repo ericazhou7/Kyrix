@@ -1,63 +1,119 @@
-html,
-body {
-    height: 100%;
+#debug-info {
+	position: absolute;
+	padding: 30px;
+	margin: 0px;
 }
 
-.kyrixdiv {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
-
-#containerSvg {
-    display: block;
-    position: absolute;
-    margin: auto;
-}
-
-.viewsvg {
-    display: block;
-    margin: auto;
-}
-
-#jumppopover {
-    display: block;
-    opacity: 0.9;
-}
-
-#popoverarrow {
-    top: 50%;
-}
-
-#popoverclose {
-    position: relative;
+#bottom-alert {
+    position: fixed;
     bottom: 5px;
-    left: 6px;
+    left:2%;
+    width: 96%;
 }
 
-#popovercontent {
-    margin: 0px;
-    padding: 0px;
+#highlighted-info{
+	position: fixed;
+    top: 30px;
+    right:2%;
+    width: 300px;
 }
 
-#popovercontent > .list-group-item {
-    padding: 6px;
-    border: none;
+#room-table-div{
+	position: fixed;
+    top: 30px;
+    bottom: 30px;
+    right:2%;
+    width: 30vw;
+    padding: 15px;
+    overflow-y: auto;
+    z-index: 10;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#jumppopover > div {
-    text-align: center;
-    font-family: "Source Serif Pro", sans-serif !important;
+#people{
+    position: fixed;
+    top: 30px;
+    bottom: 30px;
+    /*height: 30vh;*/
+    right:2%;
+    width: 30vw;
+    padding: 15px;
+    overflow-y: auto;
+    z-index: 10;
+    background-color: rgba(255,255,255,0.5);
+    opacity: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: none;
 }
 
-.gobackbutton {
+#three-container{
+    width: 300px;
+    z-index: -10;
+}
+
+
+#tooltip {
+    position: fixed;
+    width: 300px
+    height: 150px;
+    z-index: 10;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.person_row:hover {
+
+    background-color: rgba(240,240,240,0.5);
+
+}
+
+
+#dummy-container{
+    display: none;
+}
+
+
+#room_details{
+    position: fixed;
+    top: 30px;
+    bottom: 30px;
+    /*height: 40vh;*/
+    right:2%;
+    width: 50vw;
+    padding: 15px;
+    /*overflow-y: auto;*/
+    z-index: 10;
+    background-color: rgba(255,255,255,0.5);
+    opacity: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: none;
+}
+
+
+#svg-container {
     position: absolute;
+    top: 260px; right: 20px; bottom: 20px; left: 20px;
+    /*border: 1px solid black;*/
+    display: block;
+    /*background-color: red;*/
+
+
+
+/*    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: red*/
+
+/*    width: 100%;
+    height: 100%*/
 }
 
-.zoominbutton {
-    position: absolute;
+.hover-circ:hover {
+
+    fill: #0000FF;
+
 }
 
-.zoomoutbutton {
-    position: absolute;
-}
+

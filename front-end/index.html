@@ -1,38 +1,86 @@
+<!DOCTYPE html>
 <html>
-    <body></body>
-    <head>
-        <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Source Serif Pro"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans"
-            rel="stylesheet"
-        />
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gpu.js@2.0.0-rc.19/dist/gpu-browser.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<title>3D Kyrix - Simple Frontend</title>
+		<link rel="stylesheet" href='static/css/main.css'>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gpu.js@2.0.0-rc.19/dist/gpu-browser.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-element-queries@1.2.1/src/ElementQueries.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-element-queries@1.2.1/src/ResizeSensor.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-        <script src="/js/globalVar.js"></script>
-        <script src="/js/parameter.js"></script>
-        <script src="/js/zoom.js"></script>
-        <script src="/js/zoomButton.js"></script>
-        <script src="/js/pageOnLoad.js"></script>
-        <script src="/js/dynamicLayers.js"></script>
-        <script src="/js/jumpAnimation.js"></script>
-        <script src="/js/jump.js"></script>
-        <script src="/js/staticLayers.js"></script>
-        <script>
-            $(document).ready(pageOnLoad());
-        </script>
-    </head>
-</html>
+
+	</head>
+
+	<body>
+		<div id="debug-info">
+			<h2>Massachusetts General Hospital</h2>
+			<p id=level-label>Viewing all levels</p>
+			
+			<div id="button-row"></div>
+
+
+		</div>	
+
+		<div id="people">
+			<h3>People</h3>
+			<table class="table table-sm">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Role</th>
+			      <th scope="col">Infected?</th>
+			      <!-- <th scope="col">Count</th> -->
+			    </tr>
+			  </thead>
+			  <tbody id='people_body'>
+			  </tbody>
+			</table>
+		</div>
+
+
+		<div id="room_details">
+			<h3>Staff ID: <b id="rd_person"></b></h3>
+			<p>Room: <b id="rd_name"></b><br> 
+			Building: <b id="rd_building"></b><br> 
+			Level: <b id="rd_level"></b></p>
+			<p>Time: <b id="rd_time"></b></p>
+			<div id="svg-container"> </div>
+
+			<br>
+			<h3>Recorded Events</h3>
+		</div>
+
+		<div id="highlighted-info"></div>
+
+		<div id="dummy-container"></div>
+
+		<div id="three-container"></div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
+ 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+
+		<!-- Bootstrap Dependencies -->
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		
+		<script src="bundle.js"></script>
+
+
+	</body>
+
+
+</html>	
+
+
+
+
+
+
