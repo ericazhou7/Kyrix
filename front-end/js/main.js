@@ -346,7 +346,7 @@ function construct_predicate(layer) {
 	};
 
 	// Initialize the predicate
-	var predicate = 'id=mgh&predicate0=('
+	var predicate = 'id=mgh&predicate0='
 	var joiner = ''
 
 	// Add all conditions to the predicate
@@ -356,7 +356,10 @@ function construct_predicate(layer) {
 		joiner = 'and'
 	})
 
-	predicate = predicate.concat(')');
+	//add extra parentheses if more items
+	if (conditions.length > 1) {
+		predicate = '(' + predicate + ')';
+	}
 	console.log(predicate)
 	return predicate;
 }
