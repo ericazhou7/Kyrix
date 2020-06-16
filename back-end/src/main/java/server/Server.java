@@ -197,6 +197,9 @@ public class Server {
                 } else if (predicate.charAt(i) == '=') {
                     pos = i;
                     operator = "=";
+                } else if (predicate.charAt(i) == '<') {
+                    //hard coded for levels of MGH
+                    return true;
                 }
             }
         }

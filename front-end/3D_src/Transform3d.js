@@ -33,8 +33,8 @@ var get_infected_rooms = function() {
         	infected_rooms = Array.from(infected_rooms)
         	console.log(`(${infected_rooms.join()})`)
 
-        	// var next_predicate = "id=mgh&predicate0=((kind='Room')and(TO_NUMBER(level, '9999.99')<8))"
-        	var next_predicate = "id=mgh&predicate0=((kind='Room'))"
+        	// var next_predicate = "id=mgh&predicate0=((kind='Room') AND (TO_NUMBER(level, '9999.99')<8))"
+        	var next_predicate = "id=mgh&predicate0=(kind='Room')"
 
         	temp_fn();
         }

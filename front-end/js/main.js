@@ -252,8 +252,8 @@ var get_infected_rooms = function() {
         	infected_rooms = Array.from(infected_rooms)
         	console.log(`(${infected_rooms.join()})`)
 
-        	// var next_predicate = "id=mgh&predicate0=((kind='Room')and(TO_NUMBER(level, '9999.99')<8))"
-        	var next_predicate = `id=mgh&predicate0=((kind='Room')and(room='826'))`
+        	// var next_predicate = "id=mgh&predicate0=((kind='Room') AND (TO_NUMBER(level, '9999.99')<8))"
+        	var next_predicate = `id=mgh&predicate0=((kind='Room') AND (room='826'))`
         	// var next_predicate = "id=mgh&predicate0=(kind='Room')"
 
         	// console.log(views.infectedRooms.layers[0]);
@@ -349,17 +349,22 @@ function construct_predicate(layer) {
 	var predicate = 'id=mgh&predicate0='
 	var joiner = ''
 
+	//add extra parentheses if more items
+	if (conditions.length > 1) {
+		predicate += '(';
+	}
+
 	// Add all conditions to the predicate
 	$.each(conditions, (k, condition) => {
-		predicate = predicate.concat(joiner)
-		predicate = predicate.concat(`(${condition})`)
-		joiner = 'and'
+		predicate += joiner + `(${condition})`
+		joiner = ' AND '
 	})
 
 	//add extra parentheses if more items
 	if (conditions.length > 1) {
-		predicate = '(' + predicate + ')';
+		predicate += ')';
 	}
+
 	console.log(predicate)
 	return predicate;
 }
