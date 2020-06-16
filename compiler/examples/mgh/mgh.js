@@ -23,23 +23,6 @@ var mghPackLayer = new Layer(transforms.mghTransform, true);
 mghCanvas.addLayer(mghPackLayer);
 mghPackLayer.addRenderingFunc(renderers.mghPackRendering);
 
-// // Activities
-var activitiesCanvas = new Canvas("activities", 1000, 1000);
-p.addCanvas(activitiesCanvas);
-
-var activitiesPackLayer = new Layer(transforms.activitiesTransform, true);
-activitiesCanvas.addLayer(activitiesPackLayer);
-activitiesPackLayer.addRenderingFunc(renderers.mghPackRendering);
-
-
-// // People
-var peopleCanvas = new Canvas("people", 1000, 1000);
-p.addCanvas(peopleCanvas);
-
-var peoplePackLayer = new Layer(transforms.peopleTransform, true);
-peopleCanvas.addLayer(peoplePackLayer);
-peoplePackLayer.addRenderingFunc(renderers.mghPackRendering);
-
 // Fake
 var fakeCanvas = new Canvas("fake", 1000, 1000);
 p.addCanvas(fakeCanvas);

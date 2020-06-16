@@ -8,22 +8,6 @@ var mghTransform = new Transform(
     true
 );
 
-var activitiesTransform = new Transform(
-    "SELECT * FROM activities;", 
-    "mgh",
-    "",
-    [],
-    true
-);
-
-var peopleTransform = new Transform(
-    "SELECT * FROM people;", 
-    "mgh",
-    "",
-    [],
-    true
-);
-
 var fakeTransform = new Transform(
     "SELECT * FROM fakerooms;", 
     "mgh",
@@ -35,7 +19,5 @@ var fakeTransform = new Transform(
 
 module.exports = {
     mghTransform,
-    activitiesTransform,
-    peopleTransform,
     fakeTransform
 };
