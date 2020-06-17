@@ -381,10 +381,11 @@ function on_window_resize() {
 
 
 function check_raycaster() {
-	/* Checks if mouse is hovering over any clickable scene objects, and changes color */
+	/* Checks if mouse is hovering over any clickable scene objects, and changes color and tooltip */
 
 	raycaster.setFromCamera(mouse, camera);
 	var intersects = raycaster.intersectObjects(clickable_objects);
+	var tooltip = document.getElementById('tooltip');
 
 	if (intersects.length > 0 ) {
 		if (INTERSECTED != intersects[0].object) {
@@ -396,17 +397,36 @@ function check_raycaster() {
 			INTERSECTED.material.emissive.setHex( p.colors.selected_hex );
 
 			var hovered_object = scene_geoms[INTERSECTED.uuid];
+			make_tooltip(hovered_object, tooltip);
 		}
 	} else {
 		if (INTERSECTED) {
 			INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex )
 		};
 		INTERSECTED = null;
+		tooltip.style.visibility = 'hidden';
 	}
 
 	renderer.render(scene, camera);
 }
 
+// TOOLTIP ===================================================================
+
+function make_tooltip(object, tooltip) {
+	//get name
+	var object_name = object.building + ' ' + object.kind + ' ';
+		if (object.kind === 'Level') {
+			object_name += object.level;
+		} else {
+			object_name += object.room;
+	}
+	console.log(object_name);
+
+	tooltip.innerHTML = object_name;
+	tooltip.style.visibility = 'visible';
+	tooltip.style.top = mouse.y + 175  +'px';
+	tooltip.style.left = mouse.x + 40 + 'px';
+}
 
 // MAIN HELPERS ===================================================================
 
