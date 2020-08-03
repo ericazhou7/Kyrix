@@ -37,9 +37,7 @@ fakePackLayer.addRenderingFunc(renderers.mghPackRendering);
 var view = new View("mgh", 0, 0, 1000, 1000);
 p.addView(view);
 p.setInitialStates(view, mghCanvas, 0, 0, {
-    layer0: {
-        OR: [{"==": ["id", "1"]}, {"==": ["parent_id", "1"]}]
-    }
+    layer0: {"==": ["id", '1']}
 });
 
 // ================== self jump ===================
